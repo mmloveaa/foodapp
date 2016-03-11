@@ -22,6 +22,7 @@ app.service('FoodService' , function ($http){
 			return $http.delete(`/foods/${food.id}`);
 		};
 
+	});
 		// var promise = $http.get('/foods');
 
 		// promise.then(function (res){
@@ -30,7 +31,6 @@ app.service('FoodService' , function ($http){
 		// 	console.error('err: ', err);
 		// });
 
-	});
 
 // app.controller('foodCtrl', function(FoodFactory) {
 // 		FoodFactory.fetch()

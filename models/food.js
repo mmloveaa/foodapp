@@ -1,7 +1,7 @@
 'use strict';
 
-//  Shoe model
-//  Contains methods to interact with shoe data
+//  food model
+//  Contains methods to interact with food data
 
 var fs = require('fs');
 var path = require('path');
