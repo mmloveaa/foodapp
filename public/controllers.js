@@ -61,6 +61,7 @@ app.controller('foodCtrl', function($scope, FoodService) {
         // var id = food.id;
         var index = $scope.foods.indexOf(food);
         $scope.foods.splice(index, 1);
+        swal("You successfully deleted this!")
       }, function(err) {
         console.error('err:', err);
       })
