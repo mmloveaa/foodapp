@@ -22,7 +22,12 @@ app.service('FoodService' , function ($http){
 			return $http.delete(`/foods/${food.id}`);
 		};
 
-	});
+		this.update = function(editedFood) {
+			return $http.put(`/foods/${editedFood.id}`, editedFood);
+		};
+
+
+});
 		// var promise = $http.get('/foods');
 
 		// promise.then(function (res){

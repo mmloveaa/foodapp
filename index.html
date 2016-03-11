@@ -20,16 +20,17 @@
 <div class="container">
 	
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
+	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        <h4 class="modal-title" id="myModalLabel">Edit Dish</h4>
 	      </div>
 	      <div class="modal-body">
-	        <input type="date" ng-model="editObj.name" id="editName">
-	        <input type="text" placeholder="Name" ng-model="editObj.phone" id="editPhone">
-	        <input type="text" placeholder="Type" ng-model="editObj.email" id="editType">
+	        <input type="date" ng-model="editObj.date" id="editDate">
+	        <input type="text" placeholder="Name" ng-model="editObj.name" id="editName">
+	        <input type="text" placeholder="Description" ng-model="editObj.description" id="editDescription">
+	        <input type="text" placeholder="Type" ng-model="editObj.type" id="editType">
 	      </div>
 
 	      <div class="modal-footer">
@@ -40,8 +41,8 @@
 	  </div>
 	</div>
 
-<div class="container">
 <body ng-app='foodApp' ng-controller='foodCtrl'>
+<div class="container">
 	<center>
 	<br />
 	<div id="title">	
@@ -91,6 +92,14 @@
 <table ng-if='showDetails' class="table" ng-click='showDetail(thisFood)'>
 	<tbody>
 		<tr>
+			<th>Date</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			<th>Image</th>
+		
+		</tr>
+		<tr>
 				<td>{{detailedFood.date | date}}</td>
 				<td>{{detailedFood.name}}</td>
 				<td>{{detailedFood.type}}</td>
@@ -99,7 +108,7 @@
 					<img ng-src='{{detailedFood.imgUrl}}'>
 				</td>
 				<td>
-						<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" ng-click='editFood(food)'><i class="fa fa-pencil-square-o"></i></button>
+						<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" ng-click='editFood(detailedFood)'><i class="fa fa-pencil-square-o"></i></button>
 				</td>
 				<td>
 					<button ng-click='removeFood(detailedFood)' class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button>
@@ -111,20 +120,21 @@
 </div>
 
 <!-- Edit input if it is true, it will show -->
-	<div ng-show='foodToEdit'> 
+	<!-- <div ng-show='foodToEdit'> 
 		<h4>Edit Food</h4>
 		<input ng-model="foodToEdit.date" type="date">
 		<input ng-model="foodToEdit.name" type="text" placeholder="Name">
+		<input ng-model="foodToEdit.description" type="text" placeholder="Description">
 		<input ng-model="foodToEdit.type" type="text" placeholder="Type">
 		<button>
 			<i class="fa fa-check"></i>
 		</button>
 		<button class='cancel' ng-click='cancelEdit()'>
 			<!-- ng-click='shoeToEdit = null -->
-			<i class="fa fa-times"></i>
+			<!-- <i class="fa fa-times"></i>
 		</button>
-	</div>
-	</div>
+	<!-- </div> --> 
 	 </center>
+	</div>
 </body>
 </html>
