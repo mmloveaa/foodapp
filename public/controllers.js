@@ -52,11 +52,12 @@ app.controller('foodCtrl', function ($scope, FoodService) {
 
 	 $scope.removeFood = function(food) {
 	 	// console.log('shoe', shoe);
-	 	console.log("Hello")
+	 	console.log("food: ", food)
 	 	// debugger;
 	 	FoodService.remove(food)
 	 	.then(function() {
 	 		//success
+	 		// var id = food.id;
 	 		var index = $scope.foods.indexOf(food);
 	 		$scope.foods.splice(index, 1);
 	 	}, function (err){

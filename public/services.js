@@ -18,6 +18,7 @@ app.service('FoodService' , function ($http){
 		};
 
 		this.remove = function(food) {
+			console.log(food)
 			return $http.delete(`/foods/${food.id}`);
 		};
 

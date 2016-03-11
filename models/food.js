@@ -9,13 +9,13 @@ var uuid = require('uuid');
 
 var foodsFilepath = path.join(__dirname, '../data/food.json');
 
-exports.get = function(cb) {
+exports.get = function(cb) { /// the function inside Food.get is the cb
   fs.readFile(foodsFilepath, function(err, data) {
   	console.log("data: ", data)
     if(err) return cb(err);
     var foods = JSON.parse(data);
   	console.log('foods' , foods)
-    cb(null, foods);
+    cb(null, foods); // foods second argument is the data, this cb is excuting the Food.get function
   });
 };
 
