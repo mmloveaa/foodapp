@@ -23,19 +23,19 @@ app.controller('foodCtrl', function ($scope, FoodService) {
 
 	 	switch($scope.newFood.type) {
 	 		case "japanese":
-	 			  $scope.newFood.imgUrl = "http://i.imgur.com/wDdHQUR.jpg"
+	 			  $scope.newFood.imgUrl = "https://i.imgur.com/wDdHQUR.jpg"
 	 			  $scope.newFood.description = "1 California roll , 4 pieces of sushi"
 	 			  break;
 		  case "chinese":
-				  $scope.newFood.imgUrl = "http://i.imgur.com/F54wt7a.jpg"
+				  $scope.newFood.imgUrl = "https://i.imgur.com/F54wt7a.jpg"
 				  $scope.newFood.description = "Delicious fried rice"
 				  break;
 		  case "italian":
-				  $scope.newFood.imgUrl = "http://i.imgur.com/AfbpKTJ.jpg"
+				  $scope.newFood.imgUrl = "https://i.imgur.com/AfbpKTJ.jpg"
 				  $scope.newFood.description = "irresistible lasagna "
 				  break;
 			case "american":
-				  $scope.newFood.imgUrl = "http://i.imgur.com/R72rW81.jpg"
+				  $scope.newFood.imgUrl = "https://i.imgur.com/R72rW81.jpg"
 				  $scope.newFood.description = "Eat this Burger NOW"
 				  break;	  
 	 	}
