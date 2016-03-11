@@ -66,11 +66,34 @@ app.controller('foodCtrl', function ($scope, FoodService) {
 	 };
 
 
-	 $scope.editFood = function(food) {
-	 	  // editing input
-	 	  $scope.foodToEdit = angular.copy(food);
-	 		// $scope.editingFood = true;
-	 };
+	 var editList;
+
+     $scope.editFood = function (food) {
+	     	editList = this.$index;
+	     	var newEditObject = angular.copy(this.food);
+	     	$scope.editObj = newEditObject;
+     }
+
+     $scope.updateFood = function (food) {
+     	// console.log(this.editObj);
+	    $http({
+	        method: 'PUT',
+	        url: '/foods/' + editList,
+	        data: this.editObj
+	      })
+	      .then(function(response) {
+	        $scope.foods.splice(editList, 1, $scope.editObj);
+	      }, function(error) {
+	        console.log("errors from put");
+	      });
+     }
+
+
+	 // $scope.editFood = function(food) {
+	 // 	  // editing input
+	 // 	  $scope.foodToEdit = angular.copy(food);
+	 // 		// $scope.editingFood = true;
+	 // };
 
 	 $scope.showDetail = function(thisFood) {
 	 	if(!$scope.showDetails){

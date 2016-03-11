@@ -1,7 +1,12 @@
 
+#title{
+	margin : 5px;
+}
+
 
 body{
 	background-color: #acefeb;
+	font-size: 18px;
 }
 
 img {
