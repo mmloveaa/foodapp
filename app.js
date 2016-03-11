@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 var http = require('http');
 var path = require('path');
-var uuid = require('node-uuid');
+var uuid = require('uuid');
 
 var app = express();
 
