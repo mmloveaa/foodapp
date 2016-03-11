@@ -85,7 +85,8 @@ app.controller('foodCtrl', function($scope, FoodService) {
     FoodService.update($scope.editObj)
       .then(function(res) {
         $scope.foods.splice(editedFood, 1, $scope.editObj)
-        console.log("scope editObj: ", $scope.editObj);
+        swal("Good job!", "You edited the detail" , "success")
+        // console.log("scope editObj: ", $scope.editObj);
       }, function(error) {
         console.log("errors from put");
       });
