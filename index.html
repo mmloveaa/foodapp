@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+  <script src="module.js"></script>
+  <script src="controllers.js"></script>
+  <script src="services.js"></script>
+</head>
+
+<div class="container">
+<body ng-app='foodApp' ng-controller='foodCtrl'>
+	<center>
+		
+  <h1>Dinner of the Week</h1>
+
+		<!-- <label>List of Food:</label> -->
+	 <!-- by this thing to the scope and controller -->
+		<input ng-model="newFood.date" type="date">
+		<input ng-model="newFood.name" type="text" placeholder="Name">
+		<!-- <input ng-model="newFood.type" type="text" placeholder="Type"> -->
+		<select ng-model="newFood.type">
+			<option value="japanese">Japanese</option>
+			<option value="chinese">Chinese</option>
+			<option value="italian">Italian</option>
+			<option value="american">American</option>
+		</select>
+		<button ng-click='addFood()'>Add Dish</button>
+ 	
+	<br />
+	<br />
+<table ng-if='!showDetails'class="table">
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Image</th>
+		<!-- 	<th>Edit</th>
+			<th>Delete</th> -->
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat='food in foods'>
+			<td>{{food.date | date}}</td>
+			<td>{{food.name}}</td>
+			<td>{{food.type}}</td>
+			<td ng-click='showDetail(food)'><img ng-src='{{food.imgUrl}}'></td>
+		
+			
+		</tr>
+	</tbody>
+</table>
+
+<div ng-if='showDetails' ng-click='showDetail(thisFood)'>
+	{{detailedFood.date | date}}
+	{{detailedFood.name}}
+	{{detailedFood.type}}
+	{{detailedFood.description}}
+	<td>
+			<button ng-click='editFood(food)'><i class="fa fa-pencil-square-o"></i></button>
+	</td>
+	<td>
+		<button ng-click='removeFood(food)'><i class="fa fa-times"></i></button>
+	</td>
+
+	<img ng-src='{{detailedFood.imgUrl}}'>
+</div>
+
+<!-- Edit input if it is true, it will show -->
+	<div ng-show='foodToEdit'> 
+		<h4>Edit Food</h4>
+		<input ng-model="foodToEdit.date" type="date">
+		<input ng-model="foodToEdit.name" type="text" placeholder="Name">
+		<input ng-model="foodToEdit.type" type="text" placeholder="Type">
+		<button>
+			<i class="fa fa-check"></i>
+		</button>
+		<button class='cancel' ng-click='cancelEdit()'>
+			<!-- ng-click='shoeToEdit = null -->
+			<i class="fa fa-times"></i>
+		</button>
+	</div>
+	</div>
+	 </center>
+</body>
+</html>
