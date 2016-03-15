@@ -25,13 +25,13 @@ exports.create = function(newFood, cb) {
     newFood.id = uuid();
     foods.push(newFood);   // modify
     this.write(foods, function(err) {
-      cb(err, newFood);
+      cb(null, newFood);
     });  // stringify and write
   });
 };
 
-exports.write = function(foods, cb) {
-  fs.writeFile(foodsFilepath, JSON.stringify(foods), cb);
+exports.write = function(foods, mandy) {
+  fs.writeFile(foodsFilepath, JSON.stringify(foods), mandy);
 };
 
 

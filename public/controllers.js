@@ -44,19 +44,19 @@ app.controller('foodCtrl', function($scope, FoodService) {
 
     FoodService.create($scope.newFood)
       .then(function(res) {
-        $scope.foods.push(res.data)
+        $scope.foods.push(res.data) // res.data is the newFood from services.js line 16
         // console.log('res: ', res);
       }, function(err) {
         console.error('err:', err);
       })
   };
 
-  $scope.removeFood = function(food) {
+  $scope.removeFood = function(food) { // this food is the detailedFood
     // console.log('shoe', shoe);
     console.log("food: ", food)
     // debugger;
     FoodService.remove(food)
-      .then(function() {
+      .then(function() { // inside then() if it has argument depends on what the back end send 
         //success
         // var id = food.id;
         var index = $scope.foods.indexOf(food);
